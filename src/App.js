@@ -1,29 +1,30 @@
-import logo from "./logo.svg";
 import "./App.css";
-
-// JSX - JavaScript XML
-// HTML & JS
-// class => className
-
-// Frontend Framework => SPA (Single Page Application)
-
-// SSR => Server Side Rendering - Next.js - SEO gelişmiş
-// CSR => Client Side Rendering - Default - SEO zayıf
+import { useEffect, useState } from "react";
+import Navbar from "./components/Navbar/Navbar";
+import CarList from "./pages/CarList/CarList";
+import Rental from "./pages/Rental/Rental";
+import { Route, Routes } from "react-router-dom";
 
 function App() {
-  // Component
-  // React kodları
-  // let, var, const
-  const name = 10; // Veritabanı bğalantısı - API
+  const [count, setCount] = useState(0);
+  useEffect(() => {
+    console.log(count);
+  }, [count]); // dependency list
+  const increase = () => {
+    setCount(count + 1);
+  };
+  const decrase = () => {
+    setCount(count - 1);
+  };
   return (
     <div className="App">
-      <header className="App-header">
-        <h1> {name} </h1>
-        <button className="btn btn-primary">Artır</button>
-        <button className="btn btn-danger">Azalt</button>
-      </header>
+      {/* Self closing tag */}
+      <Navbar />
+      <Routes>
+        <Route path="/car-list" element={<CarList />} />
+        <Route path="/rental" element={<Rental />} />
+      </Routes>
     </div>
   );
 }
-
 export default App;
