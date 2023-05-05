@@ -1,9 +1,7 @@
-import React from 'react'
+import React from 'react';
 
 function Rental() {
-  return (
-    <div>Rental</div>
-  )
+    return <div>Rental</div>;
 }
 
-export default Rental
+export default Rental;

@@ -1,8 +1,7 @@
-import axios from "axios";
+import axiosInstance from '../utils/axiosInterceptors';
 
 export default class BrandService {
-  async getAll() {
-    let response = await axios.get("https://localhost:7050/api/brands");
-    return response.data;
-  }
+    getAll() {
+        return axiosInstance.get('brands');
+    }
 }

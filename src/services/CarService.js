@@ -1,14 +1,12 @@
-import axios from "axios";
+import axiosInstance from '../utils/axiosInterceptors';
 // axios
-export default class CarService {
-  async getAll() {
-    let response = await axios.get("https://localhost:7050/details");
-    return response.data;
-  }
 
-  addCar(car) {
-    // let response = await axios.post("https://localhost:7050/api/cars", car);
-    // return response;
-    return axios.post("https://localhost:7050/api/cars", car);
-  }
+// https://localhost:7050/api/
+export default class CarService {
+    getAll() {
+        return axiosInstance.get('cars/details');
+    }
+    addCar(car) {
+        return axiosInstance.post('cars', car);
+    }
 }
